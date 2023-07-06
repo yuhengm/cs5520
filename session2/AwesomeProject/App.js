@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function App() {
 
   const appName = "CS 5220"
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   return (
     <View style={styles.container}>
