@@ -1,16 +1,13 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native'
-import { React, useState } from 'react'
+import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { React, useState } from 'react';
 
-const Input = () => {
-
-    const [text, setText] = useState(""); // async
+const Input = ({ handleTextChange }) => {
 
     return (
         <View>
-            <TextInput style={styles.input} placeholder="Type something here" onChangeText={newText => setText(newText)} defaultValue={text} />
-            <Text>Received: {text}</Text>
+            <TextInput style={styles.input} placeholder="Type something here" onChangeText={handleTextChange} />
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
