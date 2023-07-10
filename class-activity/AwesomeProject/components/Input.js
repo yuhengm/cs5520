@@ -4,11 +4,16 @@ import { React, useState } from 'react';
 const Input = ({ handleTextChange }) => {
 
     const [text, setText] = useState("")
+    const processStoredText = (text) => {
+        handleTextChange(text);
+        setText(text);
+    }
 
     return (
         <View>
-            <TextInput style={styles.input} placeholder="Type something here" onChangeText={(text) => setText(text)} />
-            <Button title="Confirm" onPress={() => handleTextChange(text)} />
+            <TextInput style={styles.input} placeholder="Type something here" onChangeText={(text) => setText(text)} value={text} />
+            <Button title="Confirm" onPress={() => processStoredText(text)} />
+            <Button title="Cancel" onPress={() => processStoredText("")} />
         </View>
     );
 }
