@@ -1,16 +1,14 @@
-import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
+import { View, TextInput, StyleSheet, Button } from 'react-native';
 import { React, useState } from 'react';
 
 const Input = ({ handleTextChange }) => {
 
-    const checkButton = () => {
-        console.log("button pressed");
-    }
+    const [text, setText] = useState("")
 
     return (
         <View>
-            <TextInput style={styles.input} placeholder="Type something here" onChangeText={handleTextChange} />
-            <Button title="Confirm" onPress={checkButton} />
+            <TextInput style={styles.input} placeholder="Type something here" onChangeText={(text) => setText(text)} />
+            <Button title="Confirm" onPress={() => handleTextChange(text)} />
         </View>
     );
 }

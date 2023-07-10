@@ -15,7 +15,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header name={appName}></Header>
-      <Input handleTextChange={handleTextChange} />
+      <Input text={text} handleTextChange={handleTextChange} />
       {/* Re-render when text changes */}
       <Text>Received: {text}</Text>
       <StatusBar style="auto" />
