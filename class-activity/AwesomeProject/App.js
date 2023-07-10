@@ -24,7 +24,7 @@ export default function App() {
       <Header name={appName}></Header>
       <Input text={text} handleTextChange={handleTextChange} modalVisibility={modalVisibility} setVisible={setVisible} setInvisible={setInvisible} />
       {/* Re-render when text changes */}
-      <Text>Received: {text}</Text>
+      <Text>Goal: {text}</Text>
       <Button title="Add A Goal" onPress={setVisible} />
       <StatusBar style="auto" />
     </View>

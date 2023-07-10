@@ -1,4 +1,4 @@
-import { View, TextInput, StyleSheet, Button, Modal } from 'react-native';
+import { View, TextInput, StyleSheet, Button, Modal, Image } from 'react-native';
 import { React, useState } from 'react';
 
 const Input = ({ handleTextChange, modalVisibility, setVisible, setInvisible }) => {
@@ -13,6 +13,9 @@ const Input = ({ handleTextChange, modalVisibility, setVisible, setInvisible }) 
     return (
         <Modal visible={modalVisibility}>
             <View style={styles.container}>
+                {/* source={{uri: ""}} */}
+                {/* source={require("")} */}
+                <Image style={styles.logo} src={'https://i.etsystatic.com/32429025/r/il/5eb357/3614210544/il_570xN.3614210544_leur.jpg'} />
                 <TextInput style={styles.input} placeholder="Type something here" onChangeText={(text) => setText(text)} value={text} />
                 <Button title="Confirm" onPress={() => processStoredText(text)} />
                 <Button title="Cancel" onPress={() => processStoredText("")} />
@@ -31,7 +34,11 @@ const styles = StyleSheet.create({
     input: {
         borderBottomWidth: 1,
         width: 200
-    }
+    },
+    logo: {
+        width: 100,
+        height: 100,
+    },
 });
 
 export default Input
