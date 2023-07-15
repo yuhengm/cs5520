@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     color: "#a09",
     fontSize: 20,
     margin: 10,
-    padding: 10
+    padding: 10,
+    backgroundColor: "grey"
   }
 });
