@@ -1,17 +1,22 @@
-import { View, Text, Modal } from "react-native";
+import { View, Text, Modal, Button } from "react-native";
 import React from "react";
 import ButtonSignUp from "../components/ButtonSignUp";
+import ScreenHeader from "../components/ScreenHeader";
 
 const Starting = ({ styles, handleRendering }) => {
     return (
         <View>
-            <Text style={styles.screenHeading}>Sign Up</Text>
             <Modal visible={true}>
                 <View style={styles.centeredView}>
+                    <ScreenHeader styles={styles} headerText="Sign Up" />
+
                     <View style={styles.modalView}>
                         <Text style={styles.modalText}>Starting</Text>
 
-                        <ButtonSignUp buttonText="Starting button" />
+                        <Button
+                            title="Reset"
+                            color="red"
+                        />
                     </View>
                 </View>
             </Modal>

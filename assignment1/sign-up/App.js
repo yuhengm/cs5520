@@ -16,7 +16,6 @@ const App = () => {
 
   return (
     <View style={styles.centeredView}>
-      <Text>test</Text>
       {screen === "starting" && <Starting styles={styles} handleRendering={toStarting} />}
       {screen === "finish" && <Finish styles={styles} handleRendering={toFinish} />}
       {screen === "confirm" && <Confirm styles={styles} handleRendering={toConfirm} />}
@@ -51,11 +50,16 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
   },
-  screenHeading: {
+  screenHeadingContainer: {
     margin: 10,
     padding: 10,
     borderRadius: 5,
-    borderColor: "black"
+    borderColor: "black",
+    borderWidth: 2
+  },
+  screenHeadingText: {
+    fontSize: 20,
+    fontWeight: "bold",
   }
 });
 
