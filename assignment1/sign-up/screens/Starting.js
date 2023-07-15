@@ -4,7 +4,7 @@ import ButtonSignUp from "../components/ButtonSignUp";
 import ScreenHeader from "../components/ScreenHeader";
 import Input from "../components/Input";
 
-const Starting = ({ styles, handleRendering, finalizeEmail, finalizePhone }) => {
+const Starting = ({ styles, handleRendering, handleUserInfo }) => {
     // Handle email inputs
     const [email, setEmail] = useState("");
     const [emailValidError, setEmailValidError] = useState("");
@@ -54,8 +54,8 @@ const Starting = ({ styles, handleRendering, finalizeEmail, finalizePhone }) => 
 
     // Handle sign up button click
     const handleSignUp = () => {
-        finalizeEmail(email);
-        finalizePhone(phone);
+        const newUserInfor = { "email": email, "phone": phone };
+        handleUserInfo(newUserInfor);
         handleRendering("confirm");
     };
 
