@@ -47,8 +47,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalText: {
-    marginBottom: 15,
-    textAlign: "center",
+    marginBottom: 15
   },
   screenHeadingContainer: {
     margin: 10,
@@ -60,6 +59,11 @@ const styles = StyleSheet.create({
   screenHeadingText: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  signupButtonContainer: {
+    flexDirection: "row",
+    alignContent: "space-between",
+    fontSize: 10
   }
 });
 

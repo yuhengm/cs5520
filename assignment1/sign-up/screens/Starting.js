@@ -5,22 +5,42 @@ import ScreenHeader from "../components/ScreenHeader";
 import Input from "../components/Input";
 
 const Starting = ({ styles, handleRendering }) => {
-    const [email, setEmail] = useState('');
-    const [emailValidError, setEmailValidError] = useState('');
+    const [email, setEmail] = useState("");
+    const [emailValidError, setEmailValidError] = useState("");
     const validateEmail = (value) => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 
         if (value.length === 0) {
-            setEmailValidError('email address must be enter');
+            setEmailValidError("email address must be entered");
         } else if (reg.test(value) === false) {
-            setEmailValidError('enter valid email address');
+            setEmailValidError("please enter a valid email address");
         } else if (reg.test(value) === true) {
-            setEmailValidError('');
+            setEmailValidError("");
         }
     };
     const handleChangeEmail = (value) => {
         setEmail(value);
         validateEmail(value);
+    };
+
+    const [phone, setPhone] = useState("");
+    const [phoneValidError, setPhoneValidError] = useState("");
+    const validatePhone = (value) => {
+
+        number = parseInt(value);
+
+        if (value.length === 0) {
+            setPhoneValidError("phone number must be entered");
+        } else if (value.length !== 10 || isNaN(parseInt(value))) {
+            setPhoneValidError("please enter a 10 digit phone number");
+        } else if (value.length === 10) {
+            setPhoneValidError("");
+        }
+    };
+
+    const handleChangePhone = (value) => {
+        setPhone(value);
+        validatePhone(value);
     }
 
     return (
@@ -31,16 +51,23 @@ const Starting = ({ styles, handleRendering }) => {
 
                     <View style={styles.modalView}>
                         <Input
-                            placeholder="Email"
+                            placeholder="Email Address"
                             displayValue={email}
                             handleChangeEmail={handleChangeEmail}
                             errorMessage={emailValidError}
                         />
 
-                        <Button
-                            title="Reset"
-                            color="red"
+                        <Input
+                            placeholder="Phone Number"
+                            displayValue={phone}
+                            handleChangeEmail={handleChangePhone}
+                            errorMessage={phoneValidError}
                         />
+
+                        <View style={styles.signupButtonContainer}>
+                            <Button title="Reset" color="red" />
+                            <Button title="Sign up" color="blue" />
+                        </View>
                     </View>
                 </View>
             </Modal>
