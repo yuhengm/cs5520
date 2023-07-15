@@ -4,7 +4,8 @@ import ButtonSignUp from "../components/ButtonSignUp";
 import ScreenHeader from "../components/ScreenHeader";
 import Input from "../components/Input";
 
-const Starting = ({ styles, handleRendering }) => {
+const Starting = ({ styles, handleRendering, finalizeEmail, finalizePhone }) => {
+    // Handle email inputs
     const [email, setEmail] = useState("");
     const [emailValidError, setEmailValidError] = useState("");
     const validateEmail = (value) => {
@@ -23,6 +24,7 @@ const Starting = ({ styles, handleRendering }) => {
         validateEmail(value);
     };
 
+    // Handle phone number inputs
     const [phone, setPhone] = useState("");
     const [phoneValidError, setPhoneValidError] = useState("");
     const validatePhone = (value) => {
@@ -37,11 +39,25 @@ const Starting = ({ styles, handleRendering }) => {
             setPhoneValidError("");
         }
     };
-
     const handleChangePhone = (value) => {
         setPhone(value);
         validatePhone(value);
-    }
+    };
+
+    // Handle reset button click
+    const handleReset = (value) => {
+        setEmail("");
+        setEmailValidError("");
+        setPhone("");
+        setPhoneValidError("");
+    };
+
+    // Handle sign up button click
+    const handleSignUp = () => {
+        finalizeEmail(email);
+        finalizePhone(phone);
+        handleRendering("confirm");
+    };
 
     return (
         <View>
@@ -65,8 +81,8 @@ const Starting = ({ styles, handleRendering }) => {
                         />
 
                         <View style={styles.signupButtonContainer}>
-                            <Button title="Reset" color="red" />
-                            <Button title="Sign up" color="blue" />
+                            <Button title="Reset" color="red" onPress={handleReset} />
+                            <Button title="Sign up" color="blue" onPress={handleSignUp} />
                         </View>
                     </View>
                 </View>

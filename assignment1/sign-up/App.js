@@ -13,12 +13,20 @@ const App = () => {
   const toFinish = () => { setScreen("finish") };
 
   // Store user inputs globally
+  const [userEmail, setUserEmail] = useState("");
+  const [userPhone, setUserPhone] = useState("");
+  const finalizeEmail = (newEmail) => {
+    setUserEmail(newEmail);
+  };
+  const finalizePhone = (newPhone) => {
+    setUserPhone(newPhone);
+  };
 
   return (
     <View style={styles.centeredView}>
-      {screen === "starting" && <Starting styles={styles} handleRendering={toStarting} />}
-      {screen === "finish" && <Finish styles={styles} handleRendering={toFinish} />}
-      {screen === "confirm" && <Confirm styles={styles} handleRendering={toConfirm} />}
+      {screen === "starting" && <Starting styles={styles} handleRendering={toConfirm} finalizeEmail={finalizeEmail} finalizePhone={finalizePhone} />}
+      {screen === "confirm" && <Confirm styles={styles} handleRendering={toFinish} />}
+      {screen === "finish" && <Finish styles={styles} handleRendering={toStarting} />}
       <StatusBar style="auto" />
     </View>
   )
