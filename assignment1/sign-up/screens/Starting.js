@@ -1,18 +1,21 @@
-import { View, Text, Modal } from 'react-native';
-import React from 'react';
-import ButtonSignUp from '../components/ButtonSignUp';
+import { View, Text, Modal } from "react-native";
+import React from "react";
+import ButtonSignUp from "../components/ButtonSignUp";
 
 const Starting = ({ styles, handleRendering }) => {
     return (
-        <Modal visible={true}>
-            <View style={styles.centeredView}>
-                <View style={styles.modalView}>
-                    <Text style={styles.modalText}>Starting</Text>
+        <View>
+            <Text style={styles.screenHeading}>Sign Up</Text>
+            <Modal visible={true}>
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <Text style={styles.modalText}>Starting</Text>
 
-                    <ButtonSignUp />
+                        <ButtonSignUp buttonText="Starting button" />
+                    </View>
                 </View>
-            </View>
-        </Modal>
+            </Modal>
+        </View>
     )
 };
 

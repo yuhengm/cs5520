@@ -1,5 +1,5 @@
-import { View, Text, Modal } from 'react-native';
-import React from 'react';
+import { View, Text, Modal } from "react-native";
+import React from "react";
 
 const Confirm = ({ styles, handleRendering }) => {
     return (

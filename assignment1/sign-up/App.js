@@ -1,9 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { Modal, StyleSheet, Text, View } from 'react-native';
-import Starting from './screens/Starting';
-import Confirm from './screens/Confirm';
-import Finish from './screens/Finish';
+import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
+import { Modal, StyleSheet, Text, View } from "react-native";
+import Starting from "./screens/Starting";
+import Confirm from "./screens/Confirm";
+import Finish from "./screens/Finish";
 
 const App = () => {
   // Switch screens programmatically
@@ -28,17 +28,17 @@ const App = () => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 22,
   },
   modalView: {
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -49,7 +49,13 @@ const styles = StyleSheet.create({
   },
   modalText: {
     marginBottom: 15,
-    textAlign: 'center',
+    textAlign: "center",
+  },
+  screenHeading: {
+    margin: 10,
+    padding: 10,
+    borderRadius: 5,
+    borderColor: "black"
   }
 });
 

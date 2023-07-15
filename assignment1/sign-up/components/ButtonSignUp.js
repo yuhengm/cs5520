@@ -1,12 +1,12 @@
-import { StyleSheet, View, Text, Pressable } from 'react-native';
-import React from 'react';
+import { StyleSheet, View, Text, Pressable } from "react-native";
+import React from "react";
 
-const ButtonSignUp = () => {
+const ButtonSignUp = ({ buttonText }) => {
     return (
         <Pressable
             style={[styles.button, styles.buttonClose]}>
             {/* onPress={() => setModalVisible(!modalVisible)} */}
-            <Text style={styles.textStyle}>Button</Text>
+            <Text style={styles.textStyle}>{buttonText}</Text>
         </Pressable>
     )
 };
@@ -18,15 +18,15 @@ const styles = StyleSheet.create({
         elevation: 2,
     },
     buttonOpen: {
-        backgroundColor: '#F194FF',
+        backgroundColor: "#F194FF",
     },
     buttonClose: {
-        backgroundColor: '#2196F3',
+        backgroundColor: "#2196F3",
     },
     textStyle: {
-        color: 'white',
-        fontWeight: 'bold',
-        textAlign: 'center',
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center",
     }
 });
 
