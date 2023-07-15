@@ -1,7 +1,7 @@
 import { View, Text, Modal } from 'react-native';
 import React from 'react';
 
-const Finish = ({ styles }) => {
+const Finish = ({ styles, handleRendering }) => {
     return (
         <Modal visible={true}>
             <View style={styles.centeredView}>

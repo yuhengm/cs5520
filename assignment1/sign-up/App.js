@@ -6,26 +6,26 @@ import Confirm from './screens/Confirm';
 import Finish from './screens/Finish';
 
 const App = () => {
+  // Switch screens programmatically
   const [screen, setScreen] = useState("starting");
   const toStarting = () => { setScreen("starting") };
-  const toContinue = () => { setScreen("confirm") };
+  const toConfirm = () => { setScreen("confirm") };
   const toFinish = () => { setScreen("finish") };
+
+  // Store user inputs globally
 
   return (
     <View style={styles.centeredView}>
       <Text>test</Text>
-      {screen === "starting" && <Starting styles={styles} />}
-      {screen === "finish" && <Finish styles={styles} />}
-      {screen === "confirm" && <Confirm styles={styles} />}
+      {screen === "starting" && <Starting styles={styles} handleRendering={toStarting} />}
+      {screen === "finish" && <Finish styles={styles} handleRendering={toFinish} />}
+      {screen === "confirm" && <Confirm styles={styles} handleRendering={toConfirm} />}
       <StatusBar style="auto" />
     </View>
   )
 };
 
 const styles = StyleSheet.create({
-  dummy: {
-
-  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
@@ -47,26 +47,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-  },
+  }
 });
 
 export default App;
