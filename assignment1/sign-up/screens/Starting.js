@@ -1,13 +1,12 @@
-import { View, Text, Modal, Button, TextInput } from "react-native";
+import { View, Modal, Button } from "react-native";
 import { React, useState } from "react";
-import ButtonSignUp from "../components/ButtonSignUp";
 import ScreenHeader from "../components/ScreenHeader";
 import Input from "../components/Input";
 
-const Starting = ({ styles, handleRendering, handleUserInfo }) => {
+const Starting = ({ styles, toConfirm, userInfo, handleUserInfo }) => {
     // Handle email inputs
-    const [email, setEmail] = useState("");
-    const [emailValidError, setEmailValidError] = useState("");
+    const [email, setEmail] = useState(userInfo.email);
+    const [emailValidError, setEmailValidError] = useState(userInfo.phone);
     const validateEmail = (value) => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 
@@ -54,9 +53,9 @@ const Starting = ({ styles, handleRendering, handleUserInfo }) => {
 
     // Handle sign up button click
     const handleSignUp = () => {
-        const newUserInfor = { "email": email, "phone": phone };
-        handleUserInfo(newUserInfor);
-        handleRendering("confirm");
+        const newUserInfo = { "email": email, "phone": phone };
+        handleUserInfo(newUserInfo);
+        toConfirm();
     };
 
     return (

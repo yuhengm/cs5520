@@ -7,22 +7,29 @@ import Finish from "./screens/Finish";
 
 const App = () => {
   // Switch screens programmatically
-  const [screen, setScreen] = useState("starting");
+  // const [screen, setScreen] = useState("starting");
+  const [screen, setScreen] = useState("confirm");
   const toStarting = () => { setScreen("starting") };
   const toConfirm = () => { setScreen("confirm") };
   const toFinish = () => { setScreen("finish") };
 
   // Store user inputs globally
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({ "email": "", "phone": "" });
   const handleUserInfo = (newUserInfo) => {
     setUserInfo(newUserInfo);
   }
 
+  // User decision whether to sign up now (true) or later (false)
+  const [signUp, setSignUp] = useState(true);
+  const handleSignUpState = (state) => {
+    setSignUp(state);
+  };
+
   return (
     <View style={styles.centeredView}>
-      {screen === "starting" && <Starting styles={styles} handleRendering={toConfirm} handleUserInfo={handleUserInfo} />}
-      {screen === "confirm" && <Confirm styles={styles} handleRendering={toFinish} userInfo={userInfo} />}
-      {screen === "finish" && <Finish styles={styles} handleRendering={toStarting} />}
+      {screen === "starting" && <Starting styles={styles} toConfirm={toConfirm} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
+      {screen === "confirm" && <Confirm styles={styles} toStarting={toStarting} toFinish={toFinish} userInfo={userInfo} handleSignUpState={handleSignUpState} />}
+      {screen === "finish" && <Finish styles={styles} toStarting={toStarting} signUp={signUp} />}
       <StatusBar style="auto" />
     </View>
   )
