@@ -53,9 +53,11 @@ const Starting = ({ styles, toConfirm, userInfo, handleUserInfo }) => {
 
     // Handle sign up button click
     const handleSignUp = () => {
-        const newUserInfo = { "email": email, "phone": phone };
-        handleUserInfo(newUserInfo);
-        toConfirm();
+        if (emailValidError.length === 0 || phoneValidError === 0) {
+            const newUserInfo = { "email": email, "phone": phone };
+            handleUserInfo(newUserInfo);
+            toConfirm();
+        }
     };
 
     return (
