@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
+    backgroundColor
   },
   modalView: {
     margin: 20,
@@ -39,8 +40,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
-      height: 2,
+      width: 5,
+      height: 5,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
