@@ -1,22 +1,73 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Modal, StyleSheet, Text, View } from 'react-native';
+import Starting from './screens/Starting';
+import Confirm from './screens/Confirm';
+import Finish from './screens/Finish';
 
 const App = () => {
+  const [screen, setScreen] = useState("starting");
+  const toStarting = () => { setScreen("starting") };
+  const toContinue = () => { setScreen("confirm") };
+  const toFinish = () => { setScreen("finish") };
+  const text = "screen"
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={styles.centeredView}>
+      <Text>test</Text>
+      {screen === "starting" && <Starting styles={styles} />}
+      {screen === "finish" && <Finish styles={styles} />}
+      {screen === "confirm" && <Confirm styles={styles} />}
       <StatusBar style="auto" />
     </View>
   )
 };
 
 const styles = StyleSheet.create({
-  container: {
+  dummy: {
+
+  },
+  centeredView: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
-  }
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
 });
 
 export default App;
