@@ -10,7 +10,6 @@ const App = () => {
   const toStarting = () => { setScreen("starting") };
   const toContinue = () => { setScreen("confirm") };
   const toFinish = () => { setScreen("finish") };
-  const text = "screen"
 
   return (
     <View style={styles.centeredView}>
