@@ -61,33 +61,29 @@ const Starting = ({ styles, toConfirm, userInfo, handleUserInfo }) => {
     };
 
     return (
-        <View>
-            <Modal visible={true}>
-                <View style={styles.centeredView}>
-                    <ScreenHeader styles={styles} headerText="Sign Up" />
+        <View style={styles.centeredView}>
+            <ScreenHeader styles={styles} headerText="Sign Up" />
 
-                    <View style={styles.modalView}>
-                        <Input
-                            placeholder="Email Address"
-                            displayValue={email}
-                            handleChangeEmail={handleChangeEmail}
-                            errorMessage={emailValidError}
-                        />
+            <View style={styles.modalView}>
+                <Input
+                    placeholder="Email Address"
+                    displayValue={email}
+                    handleChangeEmail={handleChangeEmail}
+                    errorMessage={emailValidError}
+                />
 
-                        <Input
-                            placeholder="Phone Number"
-                            displayValue={phone}
-                            handleChangeEmail={handleChangePhone}
-                            errorMessage={phoneValidError}
-                        />
+                <Input
+                    placeholder="Phone Number"
+                    displayValue={phone}
+                    handleChangeEmail={handleChangePhone}
+                    errorMessage={phoneValidError}
+                />
 
-                        <View style={styles.signupButtonContainer}>
-                            <Button title="Reset" color="red" onPress={handleReset} />
-                            <Button title="Sign up" color="blue" onPress={handleSignUp} />
-                        </View>
-                    </View>
+                <View style={styles.signupButtonContainer}>
+                    <Button title="Reset" color="red" onPress={handleReset} />
+                    <Button title="Sign up" color="blue" onPress={handleSignUp} />
                 </View>
-            </Modal>
+            </View>
         </View>
     )
 };

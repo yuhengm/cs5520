@@ -1,5 +1,6 @@
 import { View, Text, Modal, Button } from "react-native";
 import React from "react";
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Confirm = ({ styles, toStarting, toFinish, userInfo, handleSignUpState }) => {
     const handleGoBack = () => {
@@ -16,6 +17,11 @@ const Confirm = ({ styles, toStarting, toFinish, userInfo, handleSignUpState }) 
 
     return (
         <Modal visible={true}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={['rgba(0,0,0,0.8)', 'transparent']}
+                style={styles.background}
+            />
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>You have entered:</Text>

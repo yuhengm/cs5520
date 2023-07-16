@@ -22,23 +22,21 @@ const Finish = ({ styles, toStarting, signUp, userInfo, handleUserInfo }) => {
     const sadMessage = "Sorry to see you go."
 
     return (
-        <Modal visible={true}>
-            <View style={styles.centeredView}>
-                <View style={styles.modalView}>
-                    {signUp ? <Text style={styles.modalText}>{successMessage}</Text> : <Text style={styles.modalText}>{sadMessage}</Text>}
-                    {signUp ? <Image
-                        style={styles.logo}
-                        source={{
-                            uri: generateUrl(),
-                        }}
-                    /> : <Image
-                        style={styles.logo}
-                        source={require('../assets/Sad-Face-Emoji.png')}
-                    />}
-                </View>
-                <Button title="Start Again" color="blue" onPress={handleStartAgain} />
+        <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                {signUp ? <Text style={styles.modalText}>{successMessage}</Text> : <Text style={styles.modalText}>{sadMessage}</Text>}
+                {signUp ? <Image
+                    style={styles.logo}
+                    source={{
+                        uri: generateUrl(),
+                    }}
+                /> : <Image
+                    style={styles.logo}
+                    source={require('../assets/Sad-Face-Emoji.png')}
+                />}
             </View>
-        </Modal>
+            <Button title="Start Again" color="blue" onPress={handleStartAgain} />
+        </View>
     )
 };
 

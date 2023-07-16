@@ -27,17 +27,13 @@ const App = () => {
   };
 
   return (
-    <View>
-      <View style={styles.topContainer}>
-        <Text>A</Text>
-        <LinearGradient
-          // Background Linear Gradient
-          colors={['rgba(0,0,0,0.8)', 'transparent']}
-          style={styles.background}
-        />
-        <Text>B</Text>
-      </View>
-      <View style={styles.topContainer}>
+    <View style={styles.topContainer}>
+      <LinearGradient
+        // Background Linear Gradient
+        colors={['rgba(0,0,0,0.8)', 'transparent']}
+        style={styles.background}
+      />
+      <View>
         {screen === "starting" && <Starting styles={styles} toConfirm={toConfirm} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
         {screen === "confirm" && <Confirm styles={styles} toStarting={toStarting} toFinish={toFinish} userInfo={userInfo} handleSignUpState={handleSignUpState} />}
         {screen === "finish" && <Finish styles={styles} toStarting={toStarting} signUp={signUp} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
@@ -50,13 +46,26 @@ const App = () => {
 const styles = StyleSheet.create({
   dummy: {},
   topContainer: {
-    flex: 1
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    width: '100%',
+    height: '100%',
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22
+  },
+  modal: {
+    backgroundColor: "transparent",
   },
   modalView: {
     margin: 20,
