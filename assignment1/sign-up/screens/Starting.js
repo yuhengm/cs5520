@@ -53,7 +53,7 @@ const Starting = ({ styles, toConfirm, userInfo, handleUserInfo }) => {
 
     // Handle sign up button click
     const handleSignUp = () => {
-        if (emailValidError.length === 0 || phoneValidError === 0) {
+        if (!emailValidError && !phoneValidError && email && phone) {
             const newUserInfo = { "email": email, "phone": phone };
             handleUserInfo(newUserInfo);
             toConfirm();

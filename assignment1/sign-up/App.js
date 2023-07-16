@@ -29,7 +29,7 @@ const App = () => {
     <View style={styles.centeredView}>
       {screen === "starting" && <Starting styles={styles} toConfirm={toConfirm} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
       {screen === "confirm" && <Confirm styles={styles} toStarting={toStarting} toFinish={toFinish} userInfo={userInfo} handleSignUpState={handleSignUpState} />}
-      {screen === "finish" && <Finish styles={styles} toStarting={toStarting} signUp={signUp} />}
+      {screen === "finish" && <Finish styles={styles} toStarting={toStarting} signUp={signUp} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
       <StatusBar style="auto" />
     </View>
   )
@@ -75,6 +75,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "space-between",
     fontSize: 10
+  },
+  logo: {
+    width: 100,
+    height: 100
   }
 });
 

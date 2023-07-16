@@ -23,7 +23,7 @@ const Confirm = ({ styles, toStarting, toFinish, userInfo, handleSignUpState }) 
                     <Text style={styles.modalText}>{userInfo.phone}</Text>
                     <Text style={styles.modalText}>Please confirm they are correct.</Text>
 
-                    <View style={styles.signupButtonContainer}>
+                    <View>
                         <Button title="Go back" color="red" onPress={handleGoBack} />
                         <Button title="Confirm" color="blue" onPress={handleConfirm} />
                         <Button title="Finish Later" color="blue" onPress={handleFinishLater} />
