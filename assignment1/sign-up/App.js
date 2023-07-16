@@ -1,14 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { Modal, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
+
 import Starting from "./screens/Starting";
 import Confirm from "./screens/Confirm";
 import Finish from "./screens/Finish";
 
 const App = () => {
   // Switch screens programmatically
-  // const [screen, setScreen] = useState("starting");
-  const [screen, setScreen] = useState("confirm");
+  const [screen, setScreen] = useState("starting");
   const toStarting = () => { setScreen("starting") };
   const toConfirm = () => { setScreen("confirm") };
   const toFinish = () => { setScreen("finish") };
@@ -26,16 +27,31 @@ const App = () => {
   };
 
   return (
-    <View style={styles.centeredView}>
-      {screen === "starting" && <Starting styles={styles} toConfirm={toConfirm} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
-      {screen === "confirm" && <Confirm styles={styles} toStarting={toStarting} toFinish={toFinish} userInfo={userInfo} handleSignUpState={handleSignUpState} />}
-      {screen === "finish" && <Finish styles={styles} toStarting={toStarting} signUp={signUp} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
-      <StatusBar style="auto" />
+    <View>
+      <View style={styles.topContainer}>
+        <Text>A</Text>
+        <LinearGradient
+          // Background Linear Gradient
+          colors={['rgba(0,0,0,0.8)', 'transparent']}
+          style={styles.background}
+        />
+        <Text>B</Text>
+      </View>
+      <View style={styles.topContainer}>
+        {screen === "starting" && <Starting styles={styles} toConfirm={toConfirm} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
+        {screen === "confirm" && <Confirm styles={styles} toStarting={toStarting} toFinish={toFinish} userInfo={userInfo} handleSignUpState={handleSignUpState} />}
+        {screen === "finish" && <Finish styles={styles} toStarting={toStarting} signUp={signUp} userInfo={userInfo} handleUserInfo={handleUserInfo} />}
+        <StatusBar style="auto" />
+      </View>
     </View>
   )
 };
 
 const styles = StyleSheet.create({
+  dummy: {},
+  topContainer: {
+    flex: 1
+  },
   centeredView: {
     flex: 1,
     justifyContent: "center",
