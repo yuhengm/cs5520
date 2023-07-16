@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 
 import Starting from "./screens/Starting";
 import Confirm from "./screens/Confirm";
@@ -30,7 +30,7 @@ const App = () => {
     <View style={styles.topContainer}>
       <LinearGradient
         // Background Linear Gradient
-        colors={['rgba(0,0,0,0.8)', 'transparent']}
+        colors={["#E9B384", "#F4F2DE", "#A1CCD1"]}
         style={styles.background}
       />
       <View>
@@ -44,19 +44,18 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  dummy: {},
   topContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center"
   },
   background: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     right: 0,
     top: 0,
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   centeredView: {
     flex: 1,
@@ -64,12 +63,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 22
   },
-  modal: {
-    backgroundColor: "transparent",
-  },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: "#FFFBF5",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -83,18 +79,21 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalText: {
-    marginBottom: 15
+    marginBottom: 15,
+    fontSize: 18
   },
   screenHeadingContainer: {
     margin: 10,
     padding: 10,
     borderRadius: 5,
-    borderColor: "black",
-    borderWidth: 2
+    borderColor: "#7C9D96",
+    borderWidth: 2,
+    backgroundColor: "transparent",
   },
   screenHeadingText: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
+    color: "#7C9D96"
   },
   signupButtonContainer: {
     flexDirection: "row",

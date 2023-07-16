@@ -1,5 +1,6 @@
-import { View, Text, Modal, Button, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
+import CustomerButton from "../components/CustomerButton";
 
 const Finish = ({ styles, toStarting, signUp, userInfo, handleUserInfo }) => {
     const generateUrl = () => {
@@ -35,7 +36,7 @@ const Finish = ({ styles, toStarting, signUp, userInfo, handleUserInfo }) => {
                     source={require('../assets/Sad-Face-Emoji.png')}
                 />}
             </View>
-            <Button title="Start Again" color="blue" onPress={handleStartAgain} />
+            <CustomerButton title="Start Again" color="#1572A1" onPress={handleStartAgain} />
         </View>
     )
 };

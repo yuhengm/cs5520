@@ -4,7 +4,7 @@ import React from "react";
 const Input = ({ placeholder, displayValue, handleChangeEmail, errorMessage }) => {
     return (
         <View style={styles.container}>
-            <Text>{placeholder}</Text>
+            <Text style={styles.text}>{placeholder}</Text>
             <TextInput
                 style={styles.textInput}
                 value={displayValue}
@@ -29,6 +29,9 @@ const styles = StyleSheet.create({
     textInput: {
         borderBottomColor: "#000",
         borderBottomWidth: 1
+    },
+    text: {
+        fontSize: 18
     },
     error: {
         color: "grey"

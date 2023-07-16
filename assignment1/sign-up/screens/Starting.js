@@ -1,7 +1,9 @@
 import { View, Modal, Button } from "react-native";
 import { React, useState } from "react";
+
 import ScreenHeader from "../components/ScreenHeader";
 import Input from "../components/Input";
+import CustomerButton from "../components/CustomerButton";
 
 const Starting = ({ styles, toConfirm, userInfo, handleUserInfo }) => {
     // Handle email inputs
@@ -80,8 +82,8 @@ const Starting = ({ styles, toConfirm, userInfo, handleUserInfo }) => {
                 />
 
                 <View style={styles.signupButtonContainer}>
-                    <Button title="Reset" color="red" onPress={handleReset} />
-                    <Button title="Sign up" color="blue" onPress={handleSignUp} />
+                    <CustomerButton title="Reset" color="#EA5455" onPress={handleReset} />
+                    <CustomerButton title="Sign up" color="#1572A1" onPress={handleSignUp} />
                 </View>
             </View>
         </View>

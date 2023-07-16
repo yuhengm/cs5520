@@ -1,6 +1,7 @@
-import { View, Text, Modal, Button } from "react-native";
+import { View, Text, Modal } from "react-native";
 import React from "react";
 import { LinearGradient } from 'expo-linear-gradient';
+import CustomerButton from "../components/CustomerButton";
 
 const Confirm = ({ styles, toStarting, toFinish, userInfo, handleSignUpState }) => {
     const handleGoBack = () => {
@@ -30,9 +31,9 @@ const Confirm = ({ styles, toStarting, toFinish, userInfo, handleSignUpState }) 
                     <Text style={styles.modalText}>Please confirm they are correct.</Text>
 
                     <View>
-                        <Button title="Go back" color="red" onPress={handleGoBack} />
-                        <Button title="Confirm" color="blue" onPress={handleConfirm} />
-                        <Button title="Finish Later" color="blue" onPress={handleFinishLater} />
+                        <CustomerButton title="Go back" color="#EA5455" onPress={handleGoBack} />
+                        <CustomerButton title="Confirm" color="#1572A1" onPress={handleConfirm} />
+                        <CustomerButton title="Finish Later" color="#1572A1" onPress={handleFinishLater} />
                     </View>
                 </View>
             </View>
