@@ -1,12 +1,10 @@
 import React from 'react';
-// import { StyleSheet, View, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
 import ColorScheme from './constants/ColorScheme';
 import { navigatorTitle } from './constants/StylesTemplate';
 import IconButton from './components/UI/IconButton';
-import AddEntry from './screens/AddEntry';
 import AllEntries from './screens/AllEntries';
 import OverLimitEntries from './screens/OverLimitEntries';
 
