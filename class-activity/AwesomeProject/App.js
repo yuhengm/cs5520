@@ -1,58 +1,58 @@
 import { React, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, Button, SafeAreaView } from 'react-native';
-import Header from './components/Header';
-import Input from './components/Input';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './components/Home';
+import GoalDetails from './components/GoalDetails';
+import ExtraScreen from './components/ExtraScreen';
 
 export default function App() {
 
-  const appName = "CS 5220"
-  const [text, setText] = useState("") // async
-  const [modalVisibility, setModalVisibility] = useState(false)
-  const setVisible = () => {
-    setModalVisibility(true);
-  }
-  const setInvisible = () => {
-    setModalVisibility(false);
-  }
-  const handleTextChange = (newText) => {
-    setText(newText)
-  }
+  const Stack = createNativeStackNavigator()
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.topContainer} >
-        <Header name={appName}></Header>
-        <Input text={text} handleTextChange={handleTextChange} modalVisibility={modalVisibility} setVisible={setVisible} setInvisible={setInvisible} />
-        {/* Re-render when text changes */}
-        <Button title="Add A Goal" onPress={setVisible} />
-      </View>
-      <View style={styles.bottomContainer} >
-        <Text style={styles.text}>Goals: {text}</Text>
-      </View>
+    <View style={styles.container}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: "black" },
+            headerTintColor: "white",
+            headerTitleAlign: 'center'
+          }}>
+          {/* <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: 'Home page',
+              presentation: "modal",
+            }}
+          /> */}
+          <Stack.Screen
+            name="GoalDetails"
+            component={GoalDetails}
+            options={{
+              title: 'Goal Details',
+              presentation: "modal",
+            }}
+          />
+          <Stack.Screen
+            name="ExtraScreen"
+            component={ExtraScreen}
+            options={{
+              title: 'Extra Screen',
+              presentation: "modal",
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
       <StatusBar style="auto" />
-    </SafeAreaView >
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
-  topContainer: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  bottomContainer: {
-    flex: 4,
-    backgroundColor: "#FFC0CB",
-    alignItems: "stretch"
-  },
-  text: {
-    color: "#a09",
-    fontSize: 20
   }
 });
