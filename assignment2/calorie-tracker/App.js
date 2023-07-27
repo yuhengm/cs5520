@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import ColorScheme from './constants/ColorScheme';
-import { navigatorTitle } from './constants/StylesTemplate';
+import { navigatorTitle, defaultContainer } from './constants/StylesTemplate';
 import Overview from './Overview';
 import AddEntry from './screens/AddEntry';
 import EditEntry from './screens/EditEntry';
@@ -52,7 +52,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    ...defaultContainer
   },
 });
 

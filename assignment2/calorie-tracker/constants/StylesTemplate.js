@@ -1,10 +1,8 @@
 import ColorScheme from "./ColorScheme"
 
-export const container = {
+export const defaultContainer = {
     flex: 1,
 }
-
-// https://medium.com/mindorks/everything-to-know-about-styling-in-react-native-7e30aed53ad
 
 export const navigatorTitle = {
     headerStyle: {
@@ -12,4 +10,22 @@ export const navigatorTitle = {
     },
     headerTintColor: ColorScheme.TitleText,
     headerTitleAlign: 'center',
+}
+
+export const column = {
+    flexDirection: 'column',
+}
+
+export const row = {
+    flexDirection: 'row',
+}
+
+export const pressableStyles = {
+    androidRipple: {
+        color: ColorScheme.TextInactive,
+        foreground: true
+    },
+    pressed: {
+        opacity: 0.75,
+    }
 }

@@ -1,12 +1,60 @@
 import { StyleSheet, View, Text } from 'react-native';
-import React from 'react';
+import { React, useState, useEffect } from 'react';
+// import { collection, onSnapshot, query } from 'firebase/firestore';
+
+import ColorScheme from '../constants/ColorScheme';
+import { defaultContainer } from '../constants/StylesTemplate';
+import EntryList from '../components/EntryList';
+import Hint from '../components/UI/Hint';
+import Loading from '../components/UI/Loading';
 
 const AllEntries = () => {
+
+    const entries = [
+        {
+            entryId: 1,
+            amount: 100,
+            description: '1st description',
+            isOverLimit: false
+        },
+        {
+            entryId: 2,
+            amount: 200,
+            description: '2nd description',
+            isOverLimit: false
+        },
+        {
+            entryId: 3,
+            amount: 300,
+            description: '3rd description',
+            isOverLimit: true
+        }
+    ]
+
+    const emptyEntries = []
+
+    const [isLoading, setIsLoading] = useState(false);
+    const [entriesList, setEntriesList] = useState(entries);
+
+
+
     return (
-        <View>
-            <Text>AllEntries</Text>
+        <View style={styles.screen}>
+            {isLoading && <Loading />}
+            {entriesList.length === 0 ? <Hint>You don't have any entries.</Hint> : <EntryList entriesList={entriesList} />}
         </View>
     )
 };
+
+const styles = StyleSheet.create({
+    screen: {
+        ...defaultContainer,
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        backgroundColor: ColorScheme.ContentBackgroundShaded,
+        paddingHorizontal: 10,
+        paddingTop: 10,
+    }
+});
 
 export default AllEntries;

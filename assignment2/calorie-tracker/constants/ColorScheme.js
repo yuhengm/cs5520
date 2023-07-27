@@ -6,5 +6,5 @@ export default {
     ContentText: '#000000',
     TextInactive: '#808080',
     Alert: '#FF0000', //red
-    Hint: '#808080'
+    Hint: '#808080',
 }
