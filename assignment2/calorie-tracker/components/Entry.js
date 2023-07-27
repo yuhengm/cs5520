@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons';
 
 import ColorScheme from '../constants/ColorScheme';
 import { pressableStyles, row } from '../constants/StylesTemplate';
@@ -14,7 +15,7 @@ const Entry = ({ entryInfo }) => {
         //     'EditEntry',
         //     {
         //         entryId: entryInfo.key,
-        //         amount: entryInfo.amount,
+        //         calories: entryInfo.calories,
         //         description: entryInfo.description,
         //         isOverLimit: entryInfo.isOverLimit
         //     }
@@ -34,12 +35,14 @@ const Entry = ({ entryInfo }) => {
                 <View>
                     <Text style={styles.description}>{entryInfo.description}</Text>
                 </View>
-                <View style={styles.amountContainer}>
-                    <Text style={styles.amount}>{entryInfo.amount.toFixed(0)}</Text>
+
+                {entryInfo.isOverLimit && <FontAwesome name="warning" size={24} color="orange" />}
+
+                <View style={styles.caloriesContainer}>
+                    <Text style={styles.calories}>{entryInfo.calories.toFixed()}</Text>
                 </View>
             </View>
         </Pressable>
-        // <Text>{entryInfo.amount}</Text>
     )
 };
 
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
-    amountContainer: {
+    caloriesContainer: {
         paddingHorizontal: 12,
         borderRadius: 4,
         backgroundColor: ColorScheme.TitleBackground,
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
         minWidth: 80,
         height: 30
     },
-    amount: {
+    calories: {
         color: ColorScheme.TitleText,
         fontSize: 16
     },

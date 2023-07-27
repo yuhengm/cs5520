@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { collection, onSnapshot, query } from 'firebase/firestore';
 
 import ColorScheme from '../constants/ColorScheme';
@@ -12,7 +12,7 @@ const OverLimitEntries = () => {
     const entries = [
         {
             entryId: 3,
-            amount: 300,
+            calories: 300,
             description: '3rd description',
             isOverLimit: true
         }

@@ -6,7 +6,7 @@ import ColorScheme from '../../constants/ColorScheme';
 const Title = ({ marginTop, children }) => {
     return (
         <View>
-            <Text style={styles.title}>{children}</Text>
+            <Text style={[styles.title, { marginTop: marginTop }]}>{children}</Text>
         </View>
     )
 };
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         justifyContent: 'flex-start',
         alignSelf: 'center',
-        marginTop: marginTop
     },
 });
 
