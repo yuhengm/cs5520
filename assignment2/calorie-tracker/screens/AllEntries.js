@@ -1,9 +1,9 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { React, useState, useEffect } from 'react';
 // import { collection, onSnapshot, query } from 'firebase/firestore';
 
 import ColorScheme from '../constants/ColorScheme';
-import { defaultContainer } from '../constants/StylesTemplate';
+import { screenContentContainer } from '../constants/StylesTemplate';
 import EntryList from '../components/EntryList';
 import Hint from '../components/UI/Hint';
 import Loading from '../components/UI/Loading';
@@ -48,12 +48,7 @@ const AllEntries = () => {
 
 const styles = StyleSheet.create({
     screen: {
-        ...defaultContainer,
-        justifyContent: 'center',
-        alignItems: 'stretch',
-        backgroundColor: ColorScheme.ContentBackgroundShaded,
-        paddingHorizontal: 10,
-        paddingTop: 10,
+        ...screenContentContainer
     }
 });
 

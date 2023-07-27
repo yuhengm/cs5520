@@ -4,6 +4,15 @@ export const defaultContainer = {
     flex: 1,
 }
 
+export const screenContentContainer = {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    backgroundColor: ColorScheme.ContentBackgroundShaded,
+    paddingHorizontal: 10,
+    paddingTop: 10,
+}
+
 export const navigatorTitle = {
     headerStyle: {
         backgroundColor: ColorScheme.TitleBackground,
