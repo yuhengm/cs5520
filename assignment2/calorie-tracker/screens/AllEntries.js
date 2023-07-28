@@ -1,9 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { collection, onSnapshot, query } from 'firebase/firestore';
-import { firestore, firebaseConfig } from '../firebase/setup';
+import { firestore } from '../firebase/setup';
 
-import ColorScheme from '../constants/ColorScheme';
 import { screenContentContainer } from '../constants/StylesTemplate';
 import EntryList from '../components/EntryList';
 import Hint from '../components/UI/Hint';
@@ -11,31 +10,8 @@ import Loading from '../components/UI/Loading';
 
 const AllEntries = () => {
 
-    const entries = [
-        {
-            entryId: 1,
-            calories: 100,
-            description: '1st description',
-            isOverLimit: false
-        },
-        {
-            entryId: 2,
-            calories: 200,
-            description: '2nd description',
-            isOverLimit: false
-        },
-        {
-            entryId: 3,
-            calories: 300,
-            description: '3rd description',
-            isOverLimit: true
-        }
-    ]
-
-    const emptyEntries = []
-
     const [isLoading, setIsLoading] = useState(false);
-    const [entriesList, setEntriesList] = useState(entries);
+    const [entriesList, setEntriesList] = useState([]);
 
     useEffect(() => {
         setIsLoading(true);
