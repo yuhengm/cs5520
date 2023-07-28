@@ -1,17 +1,15 @@
 import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { app } from './setup';
+import { firestore } from './setup';
 
-const firestore = getFirestore(app);
-
-export async function writeToDB(item) {
+export const writeToDB = async (item) => {
     try {
-        const docRef = await addDoc(collection(firestore, "entries"), item);
+        await addDoc(collection(firestore, "entries"), item);
     } catch (e) {
         console.log(e);
     }
 }
 
-export async function deleteFromDB(key) {
+export const deleteFromDB = async (key) => {
     try {
         await deleteDoc(doc(firestore, "entries", key));
     } catch (e) {
@@ -19,7 +17,7 @@ export async function deleteFromDB(key) {
     }
 }
 
-export async function updateFromDB(key, status) {
+export const updateFromDB = async (key, status) => {
     try {
         const docRef = doc(firestore, "entries", key);
         const data = {

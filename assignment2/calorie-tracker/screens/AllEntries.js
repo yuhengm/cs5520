@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import React, { useState, useEffect } from 'react';
-// import { collection, onSnapshot, query } from 'firebase/firestore';
+import { collection, onSnapshot, query } from 'firebase/firestore';
+import { firestore, firebaseConfig } from '../firebase/setup';
 
 import ColorScheme from '../constants/ColorScheme';
 import { screenContentContainer } from '../constants/StylesTemplate';
@@ -36,6 +37,32 @@ const AllEntries = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [entriesList, setEntriesList] = useState(entries);
 
+    useEffect(() => {
+        setIsLoading(true);
+
+        const q = query(collection(firestore, 'calorie-entries'));
+        const unsub = onSnapshot(q, (snapshot) => {
+            if (snapshot.empty) {
+                setEntriesList([]);
+                setIsLoading(false);
+                return;
+            } else {
+                setEntriesList(
+                    snapshot.docs.map((snapDoc) => {
+                        let data = snapDoc.data();
+                        data = { ...data, key: snapDoc.id };
+                        setIsLoading(false);
+                        return data;
+                    })
+                )
+            }
+        })
+
+        return () => {
+            unsub();
+        }
+
+    }, []);
 
 
     return (
