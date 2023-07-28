@@ -16,12 +16,6 @@ const AllEntries = () => {
 
     useEffect(() => {
 
-        writeToDB({
-            'calories': 100,
-            'description': 'Description',
-            'isOverLimit': false
-        })
-
         setIsLoading(true);
 
         const q = query(collection(firestore, 'calorie-entries'));

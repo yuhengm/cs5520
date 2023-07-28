@@ -19,10 +19,7 @@ const AddEntry = ({ navigation }) => {
             value: '',
             isValid: false,
             error: ''
-        },
-        isOverLimit: {
-            value: false
-        },
+        }
     });
     const [validation, setValidation] = useState(false);
     const [errorCalories, setErrorCalories] = useState(true);
@@ -41,7 +38,7 @@ const AddEntry = ({ navigation }) => {
             return {
                 ...currentValue,
                 "calories": {
-                    value: parsedCalories,
+                    value: isNaN(parsedCalories) ? '' : parsedCalories,
                     isValid: (!isNaN(parsedCalories) && parsedCalories > 0)
                 }
             }
@@ -63,27 +60,15 @@ const AddEntry = ({ navigation }) => {
     };
 
     const submitHandler = () => {
-
-        validationHandler();
-
         if (validation) {
-            setInputs((currentValue) => {
-                return {
-                    ...currentValue,
-                    "isOverLimit": {
-                        value: (inputs.calories.value > overLimitStandard)
-                    }
-                }
-            });
 
             const newEntry = {
                 'calories': inputs.calories.value,
                 'description': inputs.description.value,
-                'isOverLimit': inputs.isOverLimit.value
+                'isOverLimit': (inputs.calories.value > overLimitStandard)
             };
 
             writeToDB(newEntry);
-            Keyboard.dismiss()
             navigation.navigate('AllEntries');
         }
     };
@@ -102,22 +87,11 @@ const AddEntry = ({ navigation }) => {
             setErrorDescription(false);
         }
 
+        validationHandler();
+
     });
 
     const cancelHandler = () => {
-        // setInputs({
-        //     calories: {
-        //         value: '',
-        //         isValid: false,
-        //     },
-        //     description: {
-        //         value: '',
-        //         isValid: false,
-        //     },
-        //     isOverLimit: {
-        //         value: false
-        //     }
-        // })
         navigation.goBack();
     }
 

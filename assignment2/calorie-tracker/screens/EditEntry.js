@@ -1,16 +1,16 @@
 import { StyleSheet, View, Text, Alert, Image, Dimensions } from 'react-native';
 import React, { useState } from 'react';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import ColorScheme from '../constants/ColorScheme';
-import { screenContentContainer, buttonStyles, contentText } from '../constants/StylesTemplate';
+import { screenContentContainer, buttonStyles, contentText, cardStyle } from '../constants/StylesTemplate';
 import MainButton from '../components/UI/MainButton';
-import Title from '../components/UI/Title';
+import { deleteFromDB, updateFromDB } from '../firebase/api';
 
 
 const EditEntry = ({ navigation, route }) => {
 
-    const { calories, description, isOverlimit } = route.params;
+    const { entryId, calories, description, isOverLimit } = route.params;
 
     const confirmDeleteHandler = () => {
         Alert.alert("DELETE", "Are you sure you want to delete this entry?", [
@@ -21,7 +21,7 @@ const EditEntry = ({ navigation, route }) => {
     }
 
     const confirmOverLimitHandler = () => {
-        Alert.alert('Important', 'Are you sure you want to remove this entry from the Over-Limit category?', [
+        Alert.alert('REVIEW', 'Are you sure you want to remove this entry from the Over-Limit category?', [
             { text: "No", style: "cancel", onPress: () => { } },
             { text: "Yes", onPress: removeOverLimit }
         ]);
@@ -30,13 +30,13 @@ const EditEntry = ({ navigation, route }) => {
 
     const onDelete = () => {
         console.log("delete entry");
-
+        deleteFromDB(entryId);
         navigation.goBack();
     }
 
     const removeOverLimit = () => {
         console.log("remove over limit");
-
+        updateFromDB(entryId, false);
         navigation.navigate('AllEntries');
     }
 
@@ -58,11 +58,23 @@ const EditEntry = ({ navigation, route }) => {
                 >
                     <FontAwesome name="trash" size={24} color="white" />
                 </MainButton>
+
+                {isOverLimit &&
+                    <MainButton
+                        style={styles.button}
+                        onPress={confirmOverLimitHandler}
+                    >
+                        <FontAwesome name="check" size={24} color="white" />
+                    </MainButton>}
+
+            </View>
+
+            <View style={styles.buttonContainer}>
                 <MainButton
                     style={styles.button}
-                    onPress={confirmOverLimitHandler}
+                    onPress={() => { navigation.goBack() }}
                 >
-                    <FontAwesome name="check" size={24} color="white" />
+                    <MaterialCommunityIcons name="backburger" size={24} color="white" />
                 </MainButton>
             </View>
         </View>
@@ -86,14 +98,15 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         ...buttonStyles.buttonContainer,
-        marginTop: 20
+        marginTop: 20,
     },
     button: {
         ...buttonStyles.button
     },
     textContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        ...cardStyle
     },
     text: {
         ...contentText,

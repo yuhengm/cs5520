@@ -57,3 +57,16 @@ export const contentText = {
     marginBottom: 4,
     marginTop: 20
 }
+
+export const cardStyle = {
+    justifyContent: 'space-between',
+    padding: 12,
+    backgroundColor: ColorScheme.ContentBackground,
+    marginVertical: 10,
+    borderRadius: 6,
+    elevation: 3,
+    shadowColor: ColorScheme.Hint,
+    shadowRadius: 4,
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.4
+}

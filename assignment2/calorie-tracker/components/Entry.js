@@ -4,16 +4,16 @@ import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
 
 import ColorScheme from '../constants/ColorScheme';
-import { pressableStyles, row } from '../constants/StylesTemplate';
+import { pressableStyles, row, cardStyle } from '../constants/StylesTemplate';
 
 const Entry = ({ entryInfo }) => {
 
     const navigation = useNavigation();
     const itemPressed = () => {
-        console.log(entryInfo.entryId);
         navigation.navigate(
             'EditEntry',
             {
+                entryId: entryInfo.key,
                 calories: entryInfo.calories,
                 description: entryInfo.description,
                 isOverLimit: entryInfo.isOverLimit
@@ -51,16 +51,7 @@ const styles = StyleSheet.create({
     },
     container: {
         ...row,
-        justifyContent: 'space-between',
-        padding: 12,
-        backgroundColor: ColorScheme.ContentBackground,
-        marginVertical: 10,
-        borderRadius: 6,
-        elevation: 3,
-        shadowColor: ColorScheme.Hint,
-        shadowRadius: 4,
-        shadowOffset: { width: 1, height: 1 },
-        shadowOpacity: 0.4
+        ...cardStyle,
     },
     description: {
         color: ColorScheme.ContentText,

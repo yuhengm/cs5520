@@ -23,7 +23,7 @@ export const updateFromDB = async (key, status) => {
     try {
         const docRef = doc(firestore, COLLECTION_NAME, key);
         const data = {
-            isImportant: status
+            isOverLimit: status
         }
         await updateDoc(docRef, data);
     } catch (e) {
