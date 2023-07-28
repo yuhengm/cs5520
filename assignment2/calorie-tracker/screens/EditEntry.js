@@ -10,7 +10,7 @@ import Title from '../components/UI/Title';
 
 const EditEntry = ({ navigation, route }) => {
 
-    const { entryId, calories, description, isOverlimit } = route.params;
+    const { calories, description, isOverlimit } = route.params;
 
     const confirmDeleteHandler = () => {
         Alert.alert("DELETE", "Are you sure you want to delete this entry?", [

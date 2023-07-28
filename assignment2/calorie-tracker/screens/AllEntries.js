@@ -7,6 +7,7 @@ import { screenContentContainer } from '../constants/StylesTemplate';
 import EntryList from '../components/EntryList';
 import Hint from '../components/UI/Hint';
 import Loading from '../components/UI/Loading';
+import { deleteFromDB, writeToDB } from '../firebase/api';
 
 const AllEntries = () => {
 
@@ -14,11 +15,19 @@ const AllEntries = () => {
     const [entriesList, setEntriesList] = useState([]);
 
     useEffect(() => {
+
+        writeToDB({
+            'calories': 100,
+            'description': 'Description',
+            'isOverLimit': false
+        })
+
         setIsLoading(true);
 
         const q = query(collection(firestore, 'calorie-entries'));
         const unsub = onSnapshot(q, (snapshot) => {
             if (snapshot.empty) {
+                console.log('No snapshots');
                 setEntriesList([]);
                 setIsLoading(false);
                 return;

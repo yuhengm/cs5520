@@ -6,6 +6,7 @@ import ColorScheme from '../constants/ColorScheme';
 import { screenContentContainer, buttonStyles, contentText } from '../constants/StylesTemplate';
 import MainButton from '../components/UI/MainButton';
 import Title from '../components/UI/Title';
+import { writeToDB } from '../firebase/api';
 
 const AddEntry = ({ navigation }) => {
     const [inputs, setInputs] = useState({
@@ -75,8 +76,15 @@ const AddEntry = ({ navigation }) => {
                 }
             });
 
-            // TODO: write to database
-            console.log(inputs);
+            const newEntry = {
+                'calories': inputs.calories.value,
+                'description': inputs.description.value,
+                'isOverLimit': inputs.isOverLimit.value
+            };
+
+            writeToDB(newEntry);
+            Keyboard.dismiss()
+            navigation.navigate('AllEntries');
         }
     };
 

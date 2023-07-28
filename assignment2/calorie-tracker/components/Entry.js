@@ -14,7 +14,6 @@ const Entry = ({ entryInfo }) => {
         navigation.navigate(
             'EditEntry',
             {
-                entryId: entryInfo.entryId,
                 calories: entryInfo.calories,
                 description: entryInfo.description,
                 isOverLimit: entryInfo.isOverLimit
