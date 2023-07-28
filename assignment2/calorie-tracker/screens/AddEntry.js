@@ -1,11 +1,11 @@
 import { StyleSheet, View, Text, TextInput, Keyboard, TouchableWithoutFeedback, FlatList } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
+import { overLimitStandard } from '../constants/Standards';
 import ColorScheme from '../constants/ColorScheme';
-import { screenContentContainer } from '../constants/StylesTemplate';
+import { screenContentContainer, buttonStyles, contentText } from '../constants/StylesTemplate';
 import MainButton from '../components/UI/MainButton';
 import Title from '../components/UI/Title';
-import { overLimitStandard, row } from '../constants/Standards';
 
 const AddEntry = ({ navigation }) => {
     const [inputs, setInputs] = useState({
@@ -123,7 +123,7 @@ const AddEntry = ({ navigation }) => {
                 <Title marginTop={30}>Add An Entry</Title>
 
                 <View>
-                    <Text style={styles.label}>Calories</Text>
+                    <Text style={styles.text}>Calories</Text>
                     <TextInput
                         style={styles.input}
                         blurOnSubmit
@@ -135,7 +135,7 @@ const AddEntry = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Text style={styles.label}>Description</Text>
+                    <Text style={styles.text}>Description</Text>
                     <TextInput
                         style={[styles.input, { minHeight: 100, textAlignVertical: 'top' }]}
                         blurOnSubmit
@@ -170,11 +170,8 @@ const styles = StyleSheet.create({
     screen: {
         ...screenContentContainer
     },
-    label: {
-        fontSize: 16,
-        color: ColorScheme.ContentText,
-        marginBottom: 4,
-        marginTop: 20,
+    text: {
+        ...contentText
     },
     input: {
         borderRadius: 4,
@@ -191,13 +188,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     buttonContainer: {
-        ...row,
-        justifyContent: 'center',
-        marginTop: 20,
+        ...buttonStyles.buttonContainer,
+        marginTop: 20
     },
     button: {
-        marginHorizontal: 15,
-        minWidth: 100,
+        ...buttonStyles.button
     }
 });
 

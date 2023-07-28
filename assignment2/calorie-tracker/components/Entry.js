@@ -11,15 +11,15 @@ const Entry = ({ entryInfo }) => {
     const navigation = useNavigation();
     const itemPressed = () => {
         console.log(entryInfo.entryId);
-        // navigation.navigate(
-        //     'EditEntry',
-        //     {
-        //         entryId: entryInfo.key,
-        //         calories: entryInfo.calories,
-        //         description: entryInfo.description,
-        //         isOverLimit: entryInfo.isOverLimit
-        //     }
-        // );
+        navigation.navigate(
+            'EditEntry',
+            {
+                entryId: entryInfo.entryId,
+                calories: entryInfo.calories,
+                description: entryInfo.description,
+                isOverLimit: entryInfo.isOverLimit
+            }
+        );
     };
 
     return (

@@ -41,7 +41,7 @@ const Overview = () => {
                     tabBarLabel: "All Entries",
                     tabBarLabelStyle: { fontSize: 12 },
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialIcons name="local-drink" size={size} color={color} />
+                        <MaterialIcons name="emoji-food-beverage" size={size} color={color} />
                     ),
                 }}
             />

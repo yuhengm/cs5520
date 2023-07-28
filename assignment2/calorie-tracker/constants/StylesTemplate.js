@@ -38,3 +38,22 @@ export const pressableStyles = {
         opacity: 0.75,
     }
 }
+
+export const buttonStyles = {
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+
+    },
+    button: {
+        marginHorizontal: 15,
+        minWidth: 100,
+    }
+}
+
+export const contentText = {
+    fontSize: 16,
+    color: ColorScheme.ContentText,
+    marginBottom: 4,
+    marginTop: 20
+}
