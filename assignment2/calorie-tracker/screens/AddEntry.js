@@ -59,7 +59,10 @@ const AddEntry = ({ navigation }) => {
 
     };
 
-    const submitHandler = () => {
+    const submitHandler = async () => {
+
+        Keyboard.dismiss();
+
         if (validation) {
 
             const newEntry = {
@@ -68,7 +71,10 @@ const AddEntry = ({ navigation }) => {
                 'isOverLimit': (inputs.calories.value > overLimitStandard)
             };
 
-            writeToDB(newEntry);
+            console.log(inputs);
+            console.log(newEntry);
+
+            await writeToDB(newEntry);
             navigation.navigate('AllEntries');
         }
     };

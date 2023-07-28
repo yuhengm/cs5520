@@ -29,13 +29,11 @@ const EditEntry = ({ navigation, route }) => {
     }
 
     const onDelete = () => {
-        console.log("delete entry");
         deleteFromDB(entryId);
         navigation.goBack();
     }
 
     const removeOverLimit = () => {
-        console.log("remove over limit");
         updateFromDB(entryId, false);
         navigation.navigate('AllEntries');
     }
